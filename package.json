@@ -1,0 +1,11 @@
+{
+  "name": "registration-page",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {},
+  "author": "Jorge Gallardo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
