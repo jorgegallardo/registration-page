@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html ng-app="Registration">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sup?</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row" ng-controller="LoginController">
       <div class="col-md-offset-3 col-md-6">
         <form class="form-signin">
-          <h2 class="form-signin-heading text-center">Welcome!</h2>
+          <h2 class="form-signin-heading text-center">Welcome! {{ message }}</h2>
 
           <label for="inputEmail" class="sr-only">Email</label>
           <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
@@ -24,7 +24,7 @@
           <div class="checkbox">
             <label><input type="checkbox" value="remember-me"> Remember me</label>
           </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+          <button class="btn btn-lg btn-primary btn-block" id="login-button" type="submit">Log in</button>
           <br>
           <p class="text-center">Not a member? <a href="#">Register here.</a></p>
         </form>
@@ -32,25 +32,10 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/angular-route.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/login/LoginController.js"></script>
 </body>
 </html>
-
-
-<!--     <div class="row">
-        <div class="col-md-offset-5 col-md-3">
-            <div class="form-login">
-            <h4>Welcome back.</h4>
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
-            </br>
-            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-            </br>
-            <div class="wrapper">
-            <span class="group-btn">     
-                <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
-            </span>
-            </div>
-            </div>
-        
-        </div>
-    </div> -->
