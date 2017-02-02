@@ -5,5 +5,9 @@ angular.module('Registration', ['ngRoute'])
       templateUrl: 'app/login/login.html',
       controller: 'LoginController'
     })
+    .when('/register', {
+      templateUrl: 'app/login/registration.html',
+      controller: 'RegController'
+    })
     .otherwise({ redirectTo: '/login' });
 }]);
