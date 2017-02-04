@@ -21,7 +21,11 @@
     <div class="checkbox">
       <label><input type="checkbox" value="remember-me"> Remember me</label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" id="login-button" type="submit">Login</button>
+
+    <button type="submit" class="btn btn-lg btn-primary btn-block" id="login-button"
+            ng-disabled="signinForm.email.$invalid || signinForm.password.$invalid">
+      Login
+    </button>
     <br>
     <p class="text-center">Not a member? <a href="#">Register here.</a></p>
   </form>
