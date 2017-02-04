@@ -1,5 +1,6 @@
 angular.module('Registration', ['ngRoute'])
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode({ enabled: true });
   $routeProvider
     .when('/login', {
       templateUrl: 'app/login/login.html',
