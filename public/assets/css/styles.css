@@ -23,8 +23,11 @@
   z-index: 2;
 }
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
+  margin-bottom: 10px;
   border-radius: 0 !important;
+}
+.form-signin input[type="email"]:focus {
+  border: 1px solid #66afe9;
 }
 .form-signin input[type="password"] {
   margin-bottom: 15px;
@@ -32,4 +35,14 @@
 }
 #login-button {
   border-radius: 0 !important;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid #f00;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid #5cb85c;
+}
+.has-feedback label.sr-only~.form-control-feedback {
+  top: 5px;
+  color: #5cb85c;
 }
