@@ -8,9 +8,9 @@
     </h2>
 
     <div class="form-group has-feedback">
-      <label for="inputEmail" class="sr-only">Email</label>
+      <label for="registrationEmail" class="sr-only">Email</label>
       <input type="email" class="form-control"
-             name="email" id="inputEmail" placeholder="Email"
+             name="email" id="registrationEmail" placeholder="Email"
              ng-model="user.email" ng-required="true"
              autofocus>
       <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="registrationForm.email.$valid"></span>
@@ -21,10 +21,12 @@
       <input type="password" class="form-control"
              name="password" id="inputPassword" placeholder="Password"
              ng-model="user.password" ng-required="true">
-      <label for="inputPassword" class="sr-only">Repeat Password</label>
+      <label for="inputPassword" class="sr-only">Confirm Password</label>
       <input type="password" class="form-control"
-             name="repeatPassword" id="repeatPassword" placeholder="Repeat Password"
-             ng-model="user.repeatPassword" ng-required="true">
+             name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
+             ng-model="user.confirmPassword" ng-required="true">
+
+      <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="registrationForm.password.$valid && registrationForm.confirmPassword.$valid"></span>
     </div>
 
     <button type="submit" class="btn btn-lg btn-primary btn-block" id="login-button"

@@ -36,12 +36,12 @@
 #login-button {
   border-radius: 0 !important;
 }
-/* Set input box border to red if invalid, dirty, and not empty. */
-input.ng-invalid.ng-dirty.ng-not-empty { 
+/* Set registrationEmail input box border to red if invalid, dirty, and not empty. */
+input#registrationEmail.ng-invalid.ng-dirty.ng-not-empty { 
   border: 1px solid #f00;
 }
-/* Set input box border to green if valid and touched. */
-input.ng-valid.ng-touched {
+/* Set registrationEmail input box border to green if valid and touched. */
+input#registrationEmail.ng-valid.ng-touched {
   border: 1px solid #5cb85c;
 }
 /* Set checkmark to green. */
