@@ -1,6 +1,11 @@
 <div class="col-md-offset-3 col-md-6">
   <form class="form-signin" name="signinForm" novalidate>
-    <h2 class="form-signin-heading text-center">{{ message }} {{ signinForm.email.$valid }}</h2>
+    <h2 class="form-signin-heading text-center">{{ message }}<br>
+      Email Valid: {{ signinForm.email.$valid }}<br>
+      Email Pristine: {{ signinForm.email.$pristine }}<br>
+      Email Dirty: {{ signinForm.email.$dirty }}<br>
+      Email Touched: {{ signinForm.email.$touched }}<br>
+    </h2>
 
     <div class="form-group has-feedback">
       <label for="inputEmail" class="sr-only">Email</label>
