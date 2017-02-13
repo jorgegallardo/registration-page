@@ -1,4 +1,4 @@
-angular.module('Registration', ['ngRoute'])
+angular.module('Registration', ['ngRoute', 'firebase'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({ enabled: true });
   $routeProvider
