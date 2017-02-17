@@ -8,5 +8,6 @@ angular.module('Registration')
 
   $scope.register = function() {
     Authentication.register($scope.user);
+    // $scope.message = message;
   };
 }]);

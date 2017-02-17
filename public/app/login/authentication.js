@@ -1,6 +1,6 @@
 angular.module('Registration')
 .factory('Authentication', ['$rootScope', '$firebaseAuth', function($rootScope, $firebaseAuth) {
-  //var ref = firebase.database().ref();
+  var ref = firebase.database().ref();
   var auth = $firebaseAuth();
 
   return {
@@ -9,11 +9,20 @@ angular.module('Registration')
     },
     register: function(user) {
       auth.$createUserWithEmailAndPassword(user.email, user.password)
-      .then(function(regUser) {
+      .then(function(firebaseUser) {
+        var regRef = ref.child('users').child(firebaseUser.uid).set({
+          date: firebase.database.ServerValue.TIMESTAMP,
+          registeredUser: firebaseUser.uid,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email
+        });
+        // var message = firebaseUser.uid;
+        user.firstName = '';
+        user.lastName = '';
         user.email = '';
         user.password = '';
         user.confirmPassword = '';
-        // $scope.message = 'Thanks for registering with the email: ' + user.email;
         alert('Registration Successful.');
       })
       .catch(function(error) {
