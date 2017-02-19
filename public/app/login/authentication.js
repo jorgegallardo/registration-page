@@ -1,7 +1,17 @@
 angular.module('Registration')
-.factory('Authentication', ['$rootScope', '$location', '$firebaseAuth', function($rootScope, $location, $firebaseAuth) {
+.factory('Authentication', ['$rootScope', '$location', '$firebaseAuth', '$firebaseObject', function($rootScope, $location, $firebaseAuth, $firebaseObject) {
   var ref = firebase.database().ref();
   var auth = $firebaseAuth();
+
+  auth.$onAuthStateChanged(function(authenticatedUser) {
+    if(authenticatedUser) {
+      var userReference = ref.child('users').child(authenticatedUser.uid);
+      var userObject = $firebaseObject(userReference);
+      $rootScope.currentUser = userObject;
+    } else {
+      $rootScope.currentUser = '';
+    }
+  });
 
   return {
     login: function(user) {
@@ -13,7 +23,7 @@ angular.module('Registration')
         alert(error.message);
         user.email = '';
         user.password = '';
-      })
+      });
     },
     register: function(user) {
       auth.$createUserWithEmailAndPassword(user.email, user.password)
