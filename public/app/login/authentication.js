@@ -25,6 +25,9 @@ angular.module('Registration')
         user.password = '';
       });
     },
+    logout: function() {
+      return auth.$signOut();
+    },
     register: function(user) {
       auth.$createUserWithEmailAndPassword(user.email, user.password)
       .then(function(firebaseUser) {

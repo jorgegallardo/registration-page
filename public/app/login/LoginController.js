@@ -5,4 +5,7 @@ angular.module('Registration')
   $scope.login = function() {
     Authentication.login($scope.user);
   };
+  $scope.logout = function() {
+    Authentication.logout();
+  };
 }]);

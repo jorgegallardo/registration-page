@@ -13,7 +13,10 @@
 <body>
   <div class="container">
     <div class="row">
-      <p ng-show="currentUser" ng-controller="LoginController">Hi {{ currentUser.firstName }}!</p>
+      <div ng-controller="LoginController">
+        <p ng-show="currentUser">Hi {{ currentUser.firstName }}!</p>
+        <a class="btn btn-danger" role="button" ng-show="currentUser" ng-href="/login" ng-click="logout()">Logout</a>
+      </div>
       <div ng-view></div>
     </div>
   </div>
