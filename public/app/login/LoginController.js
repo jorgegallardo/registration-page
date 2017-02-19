@@ -1,4 +1,8 @@
 angular.module('Registration')
-.controller('LoginController', ['$scope', function($scope) {
+.controller('LoginController', ['$scope', 'Authentication', function($scope, Authentication) {
   $scope.message = 'Log in below!';
+
+  $scope.login = function() {
+    Authentication.login($scope.user);
+  };
 }]);

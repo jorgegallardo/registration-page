@@ -1,11 +1,19 @@
 angular.module('Registration')
-.factory('Authentication', ['$rootScope', '$firebaseAuth', function($rootScope, $firebaseAuth) {
+.factory('Authentication', ['$rootScope', '$location', '$firebaseAuth', function($rootScope, $location, $firebaseAuth) {
   var ref = firebase.database().ref();
   var auth = $firebaseAuth();
 
   return {
     login: function(user) {
-      $rootScope.message = "Welcome " + user.email;
+      auth.$signInWithEmailAndPassword(user.email, user.password)
+      .then(function(firebaseUser) {
+        $location.path('/success');
+      })
+      .catch(function(error) {
+        alert(error.message);
+        user.email = '';
+        user.password = '';
+      })
     },
     register: function(user) {
       auth.$createUserWithEmailAndPassword(user.email, user.password)

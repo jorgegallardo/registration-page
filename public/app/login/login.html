@@ -27,7 +27,8 @@
     </div>
 
     <button type="submit" class="btn btn-lg btn-primary btn-block" id="login-button"
-            ng-disabled="signinForm.email.$invalid || signinForm.password.$invalid">
+            ng-disabled="signinForm.email.$invalid || signinForm.password.$invalid"
+            ng-click="login()">
       Login
     </button>
     <br>

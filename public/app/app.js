@@ -10,5 +10,8 @@ angular.module('Registration', ['ngRoute', 'firebase'])
       templateUrl: 'app/login/registration.html',
       controller: 'RegController'
     })
+    .when('/success', {
+      templateUrl: 'app/login/success.html'
+    })
     .otherwise({ redirectTo: '/login' });
 }]);
