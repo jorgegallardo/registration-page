@@ -2,6 +2,7 @@ angular.module('Registration')
 .factory('Authentication', ['$rootScope', '$location', '$firebaseAuth', '$firebaseObject', function($rootScope, $location, $firebaseAuth, $firebaseObject) {
   var ref = firebase.database().ref();
   var auth = $firebaseAuth();
+  var myObject;
 
   auth.$onAuthStateChanged(function(authenticatedUser) {
     if(authenticatedUser) {
@@ -13,7 +14,7 @@ angular.module('Registration')
     }
   });
 
-  return {
+  myObject = {
     login: function(user) {
       auth.$signInWithEmailAndPassword(user.email, user.password)
       .then(function(firebaseUser) {
@@ -28,6 +29,9 @@ angular.module('Registration')
     logout: function() {
       return auth.$signOut();
     },
+    requireAuth: function() {
+      return auth.$requireSignIn();
+    },
     register: function(user) {
       auth.$createUserWithEmailAndPassword(user.email, user.password)
       .then(function(firebaseUser) {
@@ -38,7 +42,7 @@ angular.module('Registration')
           lastName: user.lastName,
           email: user.email
         });
-        // var message = firebaseUser.uid;
+        myObject.login(user);
         user.firstName = '';
         user.lastName = '';
         user.email = '';
@@ -59,4 +63,5 @@ angular.module('Registration')
       });
     }
   };
+  return myObject;
 }]);
