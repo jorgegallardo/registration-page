@@ -1,6 +1,10 @@
 .row {
   padding-top: 50px;
 }
+.navbar-form {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -38,6 +42,9 @@
 }
 #login-button {
   border-radius: 0 !important;
+}
+#logout-button {
+  margin-top: 8px;
 }
 /* Set registrationEmail input box border to red if invalid, dirty, and not empty. */
 input#registrationEmail.ng-invalid.ng-dirty.ng-not-empty { 
